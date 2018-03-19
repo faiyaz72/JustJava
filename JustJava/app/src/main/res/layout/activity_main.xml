@@ -13,6 +13,7 @@
         />
 
     <TextView
+        android:id="@+id/zero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/quantity_text_view"
@@ -23,6 +24,14 @@
         android:layout_marginTop="16dp"
         android:text="0"
         android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/zero"
+        android:layout_marginLeft="8dp"
+        android:text="Order"
+        android:onClick="submitOrder" />
 
 
 </RelativeLayout>
