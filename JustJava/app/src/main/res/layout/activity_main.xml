@@ -21,13 +21,12 @@
         android:orientation="horizontal"
         >
         <Button
-            android:id="@+id/plus"
+            android:id="@+id/minus"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="+"
-            android:onClick="increment"
+            android:text="-"
+            android:onClick="decrement"
             />
 
         <TextView
@@ -36,17 +35,19 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/plus"
             android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:text="0"
             android:textSize="18dp"
             android:textColor="@color/colorPrimaryDark" />
 
+
         <Button
-            android:id="@+id/minus"
+            android:id="@+id/plus"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:text="-"
-            android:onClick="decrement"
+            android:text="+"
+            android:onClick="increment"
             />
         </LinearLayout>
 
