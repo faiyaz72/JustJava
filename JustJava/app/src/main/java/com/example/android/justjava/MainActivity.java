@@ -1,6 +1,10 @@
 package com.example.android.justjava;
 
+import android.annotation.SuppressLint;
+import android.icu.text.NumberFormat;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -19,15 +23,28 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void submitOrder(View view) {
-        display(1);
+        display();
+        displayPrice(1*5);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+    @SuppressLint("SetTextI18n")
+    private void display() {
+        TextView quantityTextView = (TextView) findViewById(R.id.zero);
+        CharSequence cur = quantityTextView.getText();
+        int number = Integer.parseInt((String) cur);
+        number++;
+        String dis = Integer.toString(number);
+        quantityTextView.setText(dis);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void displayPrice(int number) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_num);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 }
