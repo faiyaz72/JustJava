@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,40 +15,40 @@
         android:id="@+id/quantity_text_view"
         />
 
-    <Button
-        android:id="@+id/plus"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/quantity_text_view"
-        android:layout_margin="16dp"
-        android:text="+"
-        android:onClick="increment"
-        />
-
-    <TextView
-        android:id="@+id/zero"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/quantity_text_view"
-        android:layout_alignStart="@+id/quantity_text_view"
-        android:layout_below="@+id/plus"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:text="0"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimaryDark" />
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="+"
+            android:onClick="increment"
+            />
 
-    <Button
-        android:id="@+id/minus"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_below="@id/zero"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="-"
-        android:onClick="decrement"
-        />
+        <TextView
+            android:id="@+id/zero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/plus"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:text="-"
+            android:onClick="decrement"
+            />
+        </LinearLayout>
 
     <TextView
         android:id="@+id/price"
@@ -54,7 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="20dp"
-        android:layout_below="@id/minus"
         android:text="Total Price"
         />
 
@@ -62,32 +63,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/price_num"
-        android:layout_margin="16dp"
-        android:layout_below="@id/price"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
         android:textSize="18dp"
         android:text="0"
         android:textColor="@color/colorPrimaryDark"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/order_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Order"
+            android:onClick="submitOrder" />
 
-    <Button
-        android:id="@+id/order_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/price_num"
-        android:layout_marginLeft="8dp"
-        android:text="Order"
-        android:onClick="submitOrder" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reset"
+            android:layout_marginLeft="8dp"
+            android:text="Reset"
+            android:onClick="reset"
+            />
+        </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/reset"
-        android:layout_toRightOf="@id/order_button"
-        android:layout_below="@+id/price_num"
-        android:text="Reset"
-        android:onClick="reset"
-        />
-
-
-</RelativeLayout>
+</LinearLayout>
