@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void submitOrder(View view) {
-        display(num);
         displayPrice(num*5);
-        num++;
     }
 
     /**
@@ -48,11 +46,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void reset() {
+    public void reset(View view) {
         TextView quantityTextView = (TextView) findViewById(R.id.zero);
         TextView priceTextView = (TextView) findViewById(R.id.price_num);
         quantityTextView.setText("" + 0);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(0));
         num = 0;
+    }
+
+    public void increment(View view) {
+        num++;
+        display(num);
+    }
+
+    public void decrement(View view) {
+        num--;
+        display(num);
     }
 }
