@@ -50,12 +50,23 @@
 
 
     <Button
+        android:id="@+id/order_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/price_num"
         android:layout_marginLeft="8dp"
         android:text="Order"
         android:onClick="submitOrder" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset"
+        android:layout_toRightOf="@id/order_button"
+        android:layout_below="@+id/price_num"
+        android:text="Reset"
+        android:onClick="reset"
+        />
 
 
 </RelativeLayout>

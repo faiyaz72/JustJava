@@ -14,6 +14,8 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity {
 
+    int num = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,26 +27,32 @@ public class MainActivity extends AppCompatActivity {
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void submitOrder(View view) {
-        display();
-        displayPrice(1*5);
+        display(num);
+        displayPrice(num*5);
+        num++;
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
     @SuppressLint("SetTextI18n")
-    private void display() {
+    private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.zero);
-        CharSequence cur = quantityTextView.getText();
-        int number = Integer.parseInt((String) cur);
-        number++;
-        String dis = Integer.toString(number);
-        quantityTextView.setText(dis);
+        quantityTextView.setText("" + number);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_num);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void reset() {
+        TextView quantityTextView = (TextView) findViewById(R.id.zero);
+        TextView priceTextView = (TextView) findViewById(R.id.price_num);
+        quantityTextView.setText("" + 0);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(0));
+        num = 0;
     }
 }
